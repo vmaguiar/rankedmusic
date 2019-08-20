@@ -18,17 +18,24 @@ Para mapear e relacionar com o banco de dados, poderia ter sido utilizado o Hibe
 A tabela deve conter 4 colunas, sendo uma com o id, que auto incrementa e as demais com os nomes: "nome", "banda" e "nota".
 A String USUARIO e String SENHA também devem ser alterados de acordo com o banco de dados.
 ## itens implementados(podendo ser melhorado):
-A.
-B.
-F.
-G.
+- [x] A.
+- [x] B.
+- [ ] C.
+- [ ] D.
+- [ ] E.
+- [x] F.
+- [x] G.
+- [ ] H.
+- [ ] I.
+- [ ] J.
+- [ ] K.
 
 
 
 # Downloads
-Apache Netbeans 11.1.
-Tomcat 8
-MySQL
-MySQL WorkBench 8
-Kit JDK
+- Apache Netbeans 11.1.
+- Tomcat 8
+- MySQL
+- MySQL WorkBench 8
+- Kit JDK
 

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="novotemplate.xhtml"
+             xmlns:p="http://primefaces.org/ui">
+    
+    <h1>Bem vindo ao sistema</h1>
+    
+    <h:form>
+        <p:commandButton value="Mudar para Inserir" action="#{musicaBean.mudarParaInserir()}" update="@form"></p:commandButton>
+        <p:commandButton value="Mudar para Editar" action="#{musicaBean.mudarParaEditar()}" update="@form"></p:commandButton>
+        <p:commandButton value="Mudar para Buscar" action="#{musicaBean.mudarParaBuscar()}" update="@form"></p:commandButton>
+        <br />
+        <h:outputText value="Inserir" rendered="#{musicaBean.inserir == true}"></h:outputText>
+        <h:outputText value="Editar" rendered="#{musicaBean.editar == true}"></h:outputText>
+        <h:outputText value="Buscar" rendered="#{musicaBean.buscar == true}"></h:outputText>
+        
+        <h1><h:outputText value="Só aparece quando não for BUSCAR" rendered="#{musicaBean.buscar == false}"></h:outputText></h1>
+        <h1><h:outputText value="Só aparece quando for BUSCAR" rendered="#{musicaBean.buscar == true}"></h:outputText></h1>
+    </h:form>
+</ui:decorate>

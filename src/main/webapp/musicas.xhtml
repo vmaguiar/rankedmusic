@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="novotemplate.xhtml"
+             xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:form>
+        <p:fieldset legend="Musicas">
+            <p:panelGrid columns="2" rendered="#{musicaBean.busca == false}">
+                <p:outputLabel value="Nome"></p:outputLabel>
+                <p:inputText value="#{musicaBean.entidade.nome}"></p:inputText>
+                <p:outputLabel value="Banda"></p:outputLabel>
+                <p:inputText value="#{musicaBean.entidade.banda}"></p:inputText>
+                <p:outputLabel value="Nota"></p:outputLabel>
+                <p:inputMask mask="99" value="#{musicaBean.entidade.nota}" ></p:inputMask>
+            </p:panelGrid>
+            <p:toolbar>
+                <p:toolbarGroup align="left">
+                    <p:commandButton value="Novo" action="#{musicaBean.novo()}" update="@form"></p:commandButton>
+                    <p:commandButton value="Salvar" action="#{musicaBean.salvar()}" disabled="#{musicaBean.busca == true}" update="@form"></p:commandButton>
+                    <p:commandButton value="Buscar" action="#{musicaBean.buscar()}" update="@form"></p:commandButton>
+                </p:toolbarGroup>
+            </p:toolbar>
+            <p:messages showDetail="true"></p:messages>
+            <p:dataTable value="#{musicaBean.entidades}" var="musica" rendered="#{musicaBean.busca == true}">
+                <p:column>
+                    <p:commandButton value="Editar" action="#{musicaBean.editar(musica)}" update="@form"></p:commandButton>
+                    <p:commandButton value="Deletar" action="#{musicaBean.deletar(musica)}" update="@form"></p:commandButton>
+                </p:column>
+                <p:column headerText="Nome" sortBy="#{musica.nome}">
+                    <h:outputText value="#{musica.nome}"></h:outputText>
+                </p:column>
+                <p:column headerText="Banda" sortBy="#{musica.banda}">
+                    <h:outputText value="#{musica.banda}"></h:outputText>
+                </p:column>
+                <p:column headerText="Nota" sortBy="#{musica.nota}">
+                    <h:outputText value="#{musica.nota}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>
+    </h:form>
+</ui:decorate>
+
